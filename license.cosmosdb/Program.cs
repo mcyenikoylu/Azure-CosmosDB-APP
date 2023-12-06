@@ -96,24 +96,62 @@ using (var licenseContext = new DBContext())
     // licenseContext.AppsDbSet?.Add(app1);
     //await licenseContext.SaveChangesAsync();
 
+    //
+    //
+    // select
+
+    // if (licenseContext.AppsDbSet != null)
+    // {
+    //     //var apps = await licenseContext.AppsDbSet.ToListAsync();
+    //     // Console.WriteLine("");
+    //     // foreach (var app in apps)
+    //     // {
+    //     //     Console.WriteLine("Name: " + app.AppName);
+    //     //     Console.WriteLine("Create Date: " + app.CreateDate);
+    //     //     Console.WriteLine("---------------------------------");
+    //     // }
+
+    //     var apps = await licenseContext.AppsDbSet.Where(m => m.AppName == "Jewelry CRM")
+    //     .FirstOrDefaultAsync();
+    //     Console.WriteLine("");
+    //     Console.WriteLine("Name: " + apps?.AppName);
+    //     Console.WriteLine("Create Date: " + apps?.CreateDate);
+    //     Console.WriteLine("Create Date: " + apps?.LicenseStatus);
+    //     Console.WriteLine("---------------------------------");
+    // }
+
+
+    ///
+    ///
+    /// update
+
+
+    // if (licenseContext.EmployeesDbSet != null)
+    // {
+    //     var employee = await licenseContext.EmployeesDbSet
+    //     .Where(m => m.EmployeeFullName == "Cenk Yenikoylu")
+    //     .FirstOrDefaultAsync();
+    //     if (employee != null)
+    //     {
+    //         employee.EmployeeFullName = "Cenk Yenikoylu2";
+    //         await licenseContext.SaveChangesAsync();
+    //     }
+    // }
+
+
+    ///
+    /// remove
+
     if (licenseContext.AppsDbSet != null)
     {
-        //var apps = await licenseContext.AppsDbSet.ToListAsync();
-        // Console.WriteLine("");
-        // foreach (var app in apps)
-        // {
-        //     Console.WriteLine("Name: " + app.AppName);
-        //     Console.WriteLine("Create Date: " + app.CreateDate);
-        //     Console.WriteLine("---------------------------------");
-        // }
-
-        var apps = await licenseContext.AppsDbSet.Where(m => m.AppName == "Jewelry CRM")
+        var app1 = await licenseContext.AppsDbSet
+        .Where(m => m.AppId == "910d1e08-6cec-4559-b8ed-2f9b9a8a406f")
         .FirstOrDefaultAsync();
-        Console.WriteLine("");
-        Console.WriteLine("Name: " + apps?.AppName);
-        Console.WriteLine("Create Date: " + apps?.CreateDate);
-        Console.WriteLine("Create Date: " + apps?.LicenseStatus);
-        Console.WriteLine("---------------------------------");
+        if (app1 != null)
+        {
+            licenseContext.AppsDbSet.Remove(app1);
+            await licenseContext.SaveChangesAsync();
+        }
     }
 
 
