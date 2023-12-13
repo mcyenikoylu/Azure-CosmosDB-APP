@@ -139,13 +139,13 @@ using (var licenseContext = new DBContext())
     // }
 
 
-    ///
-    /// remove
+    // ///
+    // /// remove
 
     if (licenseContext.AppsDbSet != null)
     {
         var app1 = await licenseContext.AppsDbSet
-        .Where(m => m.AppId == "910d1e08-6cec-4559-b8ed-2f9b9a8a406f")
+        .Where(m => m.AppId == "abfb05a9-569a-43b3-bcf4-4cc684f4e140")
         .FirstOrDefaultAsync();
         if (app1 != null)
         {
