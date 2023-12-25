@@ -10,5 +10,5 @@ public class Licenses
     public DateTime? CreateDate { get; set; }
     public DateTime? ExpiryDate { get; set; }
     public string? EmpleyeeId { get; set; }
-    public string? CustomerId { get; set; }
+    //public string? CustomerId { get; set; }
 }

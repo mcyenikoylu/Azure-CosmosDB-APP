@@ -22,16 +22,17 @@ public class DBContext : DbContext
     {
         modelBuilder.Entity<Employees>()
         .ToContainer("Employees")
-        .HasPartitionKey(a => a.EmployeeId);
+        .HasPartitionKey(a => a.categoryId);
 
-        modelBuilder.Entity<Customers>()
-        .ToContainer("Customers")
-        .HasPartitionKey(s => s.CustomerId);
+        // modelBuilder.Entity<Customers>()
+        // .ToContainer("Customers")
+        // .HasPartitionKey(s => s.CustomerId);
 
         modelBuilder.Entity<Apps>()
         .ToContainer("Apps")
-        .HasPartitionKey(e => e.AppId);
+        .HasPartitionKey(e => e.categoryId);
 
-        modelBuilder.Entity<Apps>().OwnsMany(m => m.LicensesList);
+        // modelBuilder.Entity<Apps>().OwnsMany(m => m.LicensesList);
+        // modelBuilder.Entity<Apps>().OwnsMany(mrvaskmsvglm => mrvaskmsvglm.CustomersList);
     }
 }
